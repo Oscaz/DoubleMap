@@ -45,9 +45,7 @@ public class DoubleMap<K1, K2, V> implements Iterable<DoubleMap.Entry<K1, K2, V>
      * @return The amount of L -> V mappings summed for each K -> Map<L, V> mapping
      */
     public int innerSize() {
-        MutableInt mutableInt = new MutableInt();
-        this.map.values().stream().map(Map::size).forEach(mutableInt::add);
-        return mutableInt.get();
+        return this.map.values().stream().mapToInt(Map::size).sum();
     }
 
     /**

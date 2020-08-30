@@ -5,8 +5,17 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ *
+ * Allows for separate map types to be used in the DoubleMap structure
+ *
+ */
 public enum MapType {
 
+    /**
+     * Choose the Map structure that suits your use case, for most this is just a HashMap,
+     * however you may require concurrency so this is a necessary option.
+     */
     HASH(HashMap.class),
     WEAK_HASH(WeakHashMap.class),
     CONCURRENT_HASH(ConcurrentHashMap.class)

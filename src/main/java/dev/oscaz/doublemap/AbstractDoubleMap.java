@@ -15,7 +15,7 @@ import java.util.function.Supplier;
  * @param <K2> The inner key associated
  * @param <V> The value associated with the k1 and k2 mappings.
  */
-abstract class AbstractDoubleMap<K1, K2, V> implements DoubleMap<K1, K2, V> {
+public abstract class AbstractDoubleMap<K1, K2, V> implements DoubleMap<K1, K2, V> {
 
     private final Map<K1, Map<K2, V>> map;
     private final Supplier<Map> mapSupplier;

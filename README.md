@@ -6,10 +6,7 @@ For example `Map<K1, Map<K2, V>>` can be reduced to `DoubleMap<K1, K2, V>` using
 # Usage #
 
 ```java
-
-DoubleMap<UUID, String, Integer> map = DoubleMap.builder().
-                                          .type(MapType.HASH)
-                                          .build();
+DoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
 
 UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
 String k2 = "AAAAA";
@@ -18,6 +15,27 @@ Integer val = 400;
 map.put(uuid, k2, val);
 Integer val = map.get(uuid, k2);
 map.remove(uuid, k2);
+```
+
+You may also extend AbstractDoubleMap to add your own map types.
+
+```java
+public class DoubleExampleMap<K1, K2, V> extends AbstractDoubleMap<K1, K2, V> {
+
+    public DoubleExampleMap() {
+        super(HashMap::new) // super takes a Supplier<Map>
+    }
+
+}
+
+public class ExampleMapTest {
+
+    @Test
+    public void testExampleMap() {
+        DoubleMap<UUID, String, Integer> map = new DoubleExampleMap<>()
+    }
+
+}
 ```
 
 # Installation #

@@ -3,6 +3,17 @@ package dev.oscaz.doublemap;
 import java.util.*;
 import java.util.function.Consumer;
 
+/**
+ * This class is essentially a wrapper for
+ * a Map<K1, Map<K2, V>>, giving you helper methods
+ * to make your code more clean.
+ *
+ * @author Oscaz
+ *
+ * @param <K1> The outer key associated
+ * @param <K2> The inner key associated
+ * @param <V> The value associated with the k1 and k2 mappings.
+ */
 public interface DoubleMap<K1, K2, V> extends Iterable<DoubleMap.Entry<K1, K2, V>> {
     /**
      * @return The amount of K -> Map<L, V> mappings

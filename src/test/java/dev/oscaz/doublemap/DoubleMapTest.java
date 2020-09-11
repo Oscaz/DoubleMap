@@ -3,15 +3,15 @@ package dev.oscaz.doublemap;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class DoubleMapTest {
 
     @Test
     public void test_put() {
-        DoubleMap<UUID, String, Integer> map = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        DoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
         UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
         String k2 = "AAAAA";
         Integer val = 400;
@@ -23,18 +23,14 @@ public class DoubleMapTest {
 
     @Test
     public void test_putAll() {
-        DoubleMap<UUID, String, Integer> map = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        AbstractDoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
         UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
         String k2 = "AAAAA";
         Integer val = 400;
         map.put(uuid, k2, val);
         Assertions.assertEquals(map.get(uuid, k2), val);
 
-        DoubleMap<UUID, String, Integer> map2 = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        AbstractDoubleMap<UUID, String, Integer> map2 = new DoubleHashMap<>();
 
         map2.putAll(map);
 
@@ -43,9 +39,7 @@ public class DoubleMapTest {
 
     @Test
     public void test_remove() {
-        DoubleMap<UUID, String, Integer> map = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        AbstractDoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
         UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
         String k2 = "AAAAA";
         Integer val = 400;
@@ -58,9 +52,7 @@ public class DoubleMapTest {
 
     @Test
     public void test_size() {
-        DoubleMap<UUID, String, Integer> map = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        AbstractDoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
         UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
         String k2a = "AAAAA";
         String k2b = "BBBBB";
@@ -85,9 +77,7 @@ public class DoubleMapTest {
 
     @Test
     public void test_isEmpty() {
-        DoubleMap<UUID, String, Integer> map = DoubleMap.builder()
-                .type(MapType.HASH)
-                .build();
+        AbstractDoubleMap<UUID, String, Integer> map = new DoubleHashMap<>();
         UUID uuid = UUID.fromString("cf102beb-970a-46d6-ab71-4140581a5505");
         UUID fakeUUID = UUID.fromString("e83cd394-8fe0-4588-8336-e8ab88b673aa");
         String k2 = "AAAAA";

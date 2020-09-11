@@ -29,7 +29,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>dev.oscaz.doublemap.DoubleMap</mainClass>
+                            <mainClass>dev.oscaz.doublemap.AbstractDoubleMap</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -61,7 +61,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>dev.oscaz.doublemap.DoubleMap</mainClass>
+                    <mainClass>dev.oscaz.doublemap.AbstractDoubleMap</mainClass>
                 </configuration>
             </plugin>
         </plugins>

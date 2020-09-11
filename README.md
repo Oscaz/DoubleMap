@@ -40,7 +40,20 @@ public class ExampleMapTest {
 
 # Installation #
 
-Currently you may copy the files into your project, a Maven repository will be available soon for use.
+Add the repository and dependency to your `pom.xml`
+```xml
+    <repository>
+        <id>oscaz-repo</id>
+        <url>https://repo.oscaz.dev</url>
+    </repository>
+```
+```xml
+    <dependency>
+        <groupId>dev.oscaz</groupId>
+        <artifactId>DoubleMap</artifactId>
+        <version>1.0</version>
+    </dependency>
+```
 
 # Features #
 

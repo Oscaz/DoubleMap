@@ -65,7 +65,21 @@
                 </configuration>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-http</artifactId>
+                <version>3.3.4</version>
+            </extension>
+        </extensions>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>oscaz-repo</id>
+            <url>https://${repo.username}:${repo.password}@repo.oscaz.dev</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>

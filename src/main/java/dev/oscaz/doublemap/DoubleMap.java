@@ -33,7 +33,6 @@ public interface DoubleMap<K1, K2, V> extends Iterable<DoubleMap.Entry<K1, K2, V
      * @param v The value to put in the map
      * @return V The previous mapping associated with k1 and k2, null if none found.
      */
-    @SuppressWarnings("unchecked")
     V put(K1 k1, K2 k2, V v);
 
     void putAll(AbstractDoubleMap<? extends K1, ? extends K2, ? extends V> map);

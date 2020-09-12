@@ -51,6 +51,14 @@
         </extensions>
     </build>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://choosealicense.com/licenses/mit/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <distributionManagement>
         <repository>
             <id>oscaz-repo</id>

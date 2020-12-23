@@ -20,10 +20,10 @@ map.remove(uuid, k2);
 You may also extend AbstractDoubleMap to add your own map types.
 
 ```java
-public class DoubleExampleMap<K1, K2, V> extends AbstractDoubleMap<K1, K2, V> {
+import java.util.HashMap;public class DoubleExampleMap<K1, K2, V> extends AbstractDoubleMap<K1, K2, V> {
 
     public DoubleExampleMap() {
-        super(HashMap::new) // super takes a Supplier<Map>
+        super(HashMap::new, HashMap::new) // super takes a Supplier<Map>
     }
 
 }

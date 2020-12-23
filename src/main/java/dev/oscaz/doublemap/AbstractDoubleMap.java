@@ -18,12 +18,13 @@ import java.util.function.Supplier;
 public abstract class AbstractDoubleMap<K1, K2, V> implements DoubleMap<K1, K2, V> {
 
     private final Map<K1, Map<K2, V>> map;
-    private final Supplier<Map> mapSupplier;
+    private final Supplier<Map<K1, Map<K2, V>>> backingMapSupplier;
+    private final Supplier<Map<K2, V>> innerMapSupplier;
 
-    @SuppressWarnings("unchecked")
-    public AbstractDoubleMap(Supplier<Map> supplier) {
-        this.mapSupplier = supplier;
-        this.map = (Map<K1, Map<K2,V>>) this.mapSupplier.get();
+    public AbstractDoubleMap(Supplier<Map<K1, Map<K2, V>>> backingMapSupplier, Supplier<Map<K2, V>> innerMapSupplier) {
+        this.backingMapSupplier = backingMapSupplier;
+        this.innerMapSupplier = innerMapSupplier;
+        this.map = this.backingMapSupplier.get();
     }
 
     /**
@@ -54,7 +55,7 @@ public abstract class AbstractDoubleMap<K1, K2, V> implements DoubleMap<K1, K2, 
      */
     @SuppressWarnings("unchecked")
     public V put(K1 k1, K2 k2, V v) {
-        return this.map.computeIfAbsent(k1, k -> (Map<K2, V>) this.mapSupplier.get())
+        return this.map.computeIfAbsent(k1, k -> (Map<K2, V>) this.innerMapSupplier.get())
                 .put(k2, v);
     }
 

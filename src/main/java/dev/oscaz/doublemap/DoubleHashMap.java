@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 public class DoubleHashMap<K1, K2, V> extends AbstractDoubleMap<K1, K2, V> {
 
     public DoubleHashMap() {
-        super(HashMap::new);
+        super(HashMap::new, HashMap::new);
     }
 
 }

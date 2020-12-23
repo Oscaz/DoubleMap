@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 public class DoubleConcurrentHashMap<K1, K2, V> extends AbstractDoubleMap<K1, K2, V> {
 
     public DoubleConcurrentHashMap() {
-        super(ConcurrentHashMap::new);
+        super(ConcurrentHashMap::new, ConcurrentHashMap::new);
     }
 
 }

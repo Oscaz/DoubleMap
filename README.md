@@ -51,7 +51,7 @@ Add the repository and dependency to your `pom.xml`
     <dependency>
         <groupId>dev.oscaz</groupId>
         <artifactId>DoubleMap</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </dependency>
 ```
 
